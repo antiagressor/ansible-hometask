@@ -12,9 +12,10 @@
       service: name=httpd enabled=yes
       notify: restart httpd
     - name: Creating an index.html
-        copy:
-          dest: "/var/www/html/"
-          content: "Welcome to my web server"
+      copy:
+        dest: "/var/www/html/index.html"
+        content: |
+          Welcome to my web server
   handlers:
     - name: restart httpd
       service: name=httpd state=restarted
