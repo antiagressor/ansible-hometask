@@ -10,7 +10,7 @@
       lineinfile:
         path: /etc/default/grub
         regexp: '^net.ifnames=0'
-        insertafter: '^0'
+#        insertafter: '^0'
         line: test
 #  handlers:
 #    - name: firewalld reload
