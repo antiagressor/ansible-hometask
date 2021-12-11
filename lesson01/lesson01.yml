@@ -1,13 +1,17 @@
 ---
-- name: install a package
-  hosts: node01.lab.local
+- hosts: node01.lab.local
   user: ansible
   become: yes
   become_method: sudo
   become_user: root
 
   tasks:
-    - name: install httpd
-      package: name=httpd
-      state: latest
+    - name: Install httpd
+      yum: pkg=httpd state=latest
+    - name: Enable httpd on system reboot
+      service: name=httpd enabled=yes
+      notify: restart httpd
+  handlers:
+    - name: restart httpd
+      service: name=httpd state=restarted
 ...
