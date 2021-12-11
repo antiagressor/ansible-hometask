@@ -24,4 +24,10 @@
       service: name=httpd state=restarted
     - name: restart firewalld
       service: name=firewalld state=restarted
+    - name: FirewallD enable port 80
+        firewalld:
+          zone: public
+          port: 80/tcp
+          permanent: true
+          state: enabled
 ...
