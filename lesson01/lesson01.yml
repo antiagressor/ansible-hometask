@@ -27,12 +27,12 @@
         state: enabled
       notify: firewalld reload
     - name: FirewallD enable port 443
-        firewalld:
-          zone: public
-          port: 443/tcp
-          permanent: true
-          state: enabled
-        notify: firewalld reload
+      firewalld:
+        zone: public
+        port: 443/tcp
+        permanent: true
+        state: enabled
+      notify: firewalld reload
   handlers:
     - name: restart httpd
       service: name=httpd state=restarted
