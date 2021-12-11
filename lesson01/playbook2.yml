@@ -6,16 +6,16 @@
   become_user: root
 
   tasks:
-    - name: Install httpd
-      yum: pkg=httpd state=latest
-    - name: Enable httpd on system reboot
-      service: name=httpd enabled=yes
-      notify: restart httpd
-    - name: Creating an index.html
-      copy:
-        dest: "/var/www/html/index.html"
-        content: |
-          Welcome to my web server
+    - name: Uninstall httpd
+      yum: pkg=httpd state=removed
+#    - name: Enable httpd on system reboot
+#      service: name=httpd enabled=yes
+#      notify: restart httpd
+#    - name: Creating an index.html
+#      copy:
+#        dest: "/var/www/html/index.html"
+#        content: |
+#          Welcome to my web server
     - name: Enable FirewallD on system reboot
       service: name=firewalld enabled=yes
       notify: restart firewalld
