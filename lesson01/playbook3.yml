@@ -7,10 +7,10 @@
 
   tasks:
     - name: Ensure we have net.ifnames and biosdevname
-    lineinfile:
-      path: /etс/default/grub
-      regexp: '^net.ifnames=0'
-      line: test
+      lineinfile:
+        path: /etс/default/grub
+        regexp: '^net.ifnames=0'
+        line: test
 #  handlers:
 #    - name: firewalld reload
 #      command: firewall-cmd --reload
