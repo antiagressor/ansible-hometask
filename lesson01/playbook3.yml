@@ -9,9 +9,9 @@
     - name: Ensure we have net.ifnames and biosdevname
       lineinfile:
         path: /etc/default/grub
-        search_string: 'net.ifnames='
+        search_string: 'net.ifnames=0'
 #        regexp: '^net.ifnames=0'
-        state= absent
+        state: absent
 #        insertafter: '^0'
         line: test
 #  handlers:
