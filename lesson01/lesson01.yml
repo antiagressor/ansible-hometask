@@ -1,5 +1,5 @@
 ---
-- hosts: node01.lab.local
+- hosts: [webservers]
   user: ansible
   become: yes
   become_method: sudo
