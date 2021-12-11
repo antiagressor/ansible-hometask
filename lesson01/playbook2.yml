@@ -9,27 +9,20 @@
     - name: Uninstall httpd
       yum: pkg=httpd state=removed
     - name: Delete index.html
-      ansible.builtin.file:
+      file:
         path: "/var/www/html/index.html"
         state: absent
-#    - name: Enable FirewallD on system reboot
-#      service: name=firewalld enabled=yes
-#      notify: restart firewalld
-#    - name: FirewallD enable http/https
-#      firewalld:
-#        zone: public
-#        port: "{{ item }}"
-#        permanent: true
-#        state: enabled
-#      loop:
-#        - 80/tcp
-#        - 443/tcp
-#      notify: firewalld reload
-#  handlers:
-#    - name: restart httpd
-#      service: name=httpd state=restarted
-#    - name: restart firewalld
-#      service: name=firewalld state=restarted
-#    - name: firewalld reload
-#      command: firewall-cmd --reload
+    - name: FirewallD disable http/https
+      firewalld:
+        zone: public
+        port: "{{ item }}"
+        permanent: true
+        state: disabled
+      loop:
+        - 80/tcp
+        - 443/tcp
+      notify: firewalld reload
+  handlers:
+    - name: firewalld reload
+      command: firewall-cmd --reload
 ...
