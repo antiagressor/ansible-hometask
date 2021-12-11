@@ -1,0 +1,17 @@
+---
+- hosts: node01.lab.local
+  user: ansible
+  become: yes
+  become_method: sudo
+  become_user: root
+
+  tasks:
+    - name: Ensure we have net.ifnames=0 and biosdevname=0
+    lineinfile:
+      path: /etс/default/grub
+      regexp: '^net.ifnames=0'
+      line: test
+#  handlers:
+#    - name: firewalld reload
+#      command: firewall-cmd --reload
+...
