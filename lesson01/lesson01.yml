@@ -19,15 +19,15 @@
     - name: Enable FirewallD on system reboot
       service: name=firewalld enabled=yes
       notify: restart firewalld
-  handlers:
-    - name: restart httpd
-      service: name=httpd state=restarted
-    - name: restart firewalld
-      service: name=firewalld state=restarted
     - name: FirewallD enable port 80
       firewalld:
         zone: public
         port: 80/tcp
         permanent: true
         state: enabled
+  handlers:
+    - name: restart httpd
+      service: name=httpd state=restarted
+    - name: restart firewalld
+      service: name=firewalld state=restarted
 ...
