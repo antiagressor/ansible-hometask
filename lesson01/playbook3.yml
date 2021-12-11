@@ -6,10 +6,10 @@
   become_user: root
 
   tasks:
-    - name: Ensure we have net.ifnames=0 and biosdevname=0
+    - name: Ensure we have net.ifnames and biosdevname
     lineinfile:
       path: /etс/default/grub
-      regexp: "^net.ifnames=0"
+      regexp: '^net.ifnames=0'
       line: test
 #  handlers:
 #    - name: firewalld reload
