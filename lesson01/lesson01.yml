@@ -11,6 +11,10 @@
     - name: Enable httpd on system reboot
       service: name=httpd enabled=yes
       notify: restart httpd
+    - name: Creating an index.html
+        copy:
+          dest: "/var/www/html/"
+          content: "Welcome to my web server"
   handlers:
     - name: restart httpd
       service: name=httpd state=restarted
