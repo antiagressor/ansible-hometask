@@ -19,6 +19,8 @@
       lineinfile:
         path: "/var/www/html/index.html"
         line: Welcome to my web server
+        owner: apache
+        group: apache
         create: yes
     - name: Enable FirewallD on system reboot
       service: name=firewalld enabled=yes
