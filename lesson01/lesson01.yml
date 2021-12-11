@@ -17,8 +17,8 @@
         content: |
           Welcome to my web server
     - name: Enable FirewallD on system reboot
-        service: name=firewalld enabled=yes
-        notify: restart firewalld
+      service: name=firewalld enabled=yes
+      notify: restart firewalld
   handlers:
     - name: restart httpd
       service: name=httpd state=restarted
