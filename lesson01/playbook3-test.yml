@@ -5,7 +5,7 @@
   become_method: sudo
   become_user: root
 
-#  tasks:
+  tasks:
 #    - name: add net.ifnames
 #      replace:
 #        path: /etc/default/grub
