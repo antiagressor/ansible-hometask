@@ -40,6 +40,8 @@
         line: "{{ item }}"
       loop:
         - \1 audit=1\2
+        - \1 net.ifnames=0\2
+        - \1 biosdevname=0\2
 
 
 
