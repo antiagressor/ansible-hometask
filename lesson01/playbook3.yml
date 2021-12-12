@@ -12,9 +12,14 @@
         regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
         replace: '\1 {{ option }}={{ value }}\2'
       vars:
-        option: net.ifnames
-        value: 0
-#      lineinfile:
+        option: "{{ item }}"
+        value: "{{ item }}"
+      loop:
+        - net.ifnames
+        - 0
+        - biosdevname
+        - 0
+         #      lineinfile:
 #        path: /etc/default/grub
 ##        search_string: 'net.ifnames=0'
 ##       regexp: '^(net.ifnames=0)'
