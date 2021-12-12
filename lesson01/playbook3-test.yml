@@ -36,12 +36,10 @@
       lineinfile:
         path: /etc/default/grub
         backrefs: yes
-#        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* audit)\"[^\"]+)(\".*)'
+        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* audit)\"[^\"]+)(\".*)'
         line: "{{ item }}"
       loop:
         - \1 audit=1\2
-#        - \1 net.ifnames=0\2
-#        - \1 biosdevname=0\2
 
 
 
