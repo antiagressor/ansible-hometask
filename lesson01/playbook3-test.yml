@@ -36,7 +36,7 @@
       lineinfile:
         path: /etc/default/grub
         backrefs: yes
-        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* audit)\"[^\"]+)(\".*)'
+        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* net.ifnames)\"[^\"]+)(\".*)'
         line: "{{ item }}"
       loop:
         - \1 audit=1\2
