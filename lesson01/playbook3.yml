@@ -6,7 +6,7 @@
   become_user: root
 
   tasks:
-    - name: Ensure we have net.ifnames and biosdevname
+    - name: change grub
       replace:
         path: /etc/default/grub
         regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
