@@ -39,8 +39,8 @@
         regexp: '^(net.ifnames=0)'
 #        regexp: "{{ item }}"
         state: present
-        insertafter: '^(GRUB_CMDLINE_LINUX=" )'
-        line: 'net.ifnames=0'
+        insertafter: '1234'
+#        line: 'net.ifnames=0'
 #      loop:
 #        - ^GRUB_CMDLINE_LINUX="
 ##        - 443/tcp
