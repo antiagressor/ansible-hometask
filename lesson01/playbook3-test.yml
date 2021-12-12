@@ -6,25 +6,6 @@
   become_user: root
 
   tasks:
-#    - name: add net.ifnames
-#      replace:
-#        path: /etc/default/grub
-#        regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
-#        replace: '\1 {{ option }}={{ value }}\2'
-#      vars:
-#        option: net.ifnames
-#        value: 0
-
-
-
-
-
-
-
-
-
-
-
     - name: add first change
       lineinfile:
         path: /etc/default/grub
@@ -38,24 +19,4 @@
         backrefs: yes
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* biosdevname)\"[^\"]+)(\".*)'
         line: '\1 biosdevname=0\2'
-
-
-
-#        search_string: 'net.ifnames=0'
-#        regexp: '^(net.ifnames=0)'
-#        insertbefore: '^(elevator=noop)'
-#        line: 'test line'
-#        regexp: "{{ item }}"
-#        state: absent
-#        insertafter: '1234'
-#        line: 'net.ifnames=0'
-#        backrefs: yes
-#      loop:
-#        - ^GRUB_CMDLINE_LINUX="
-##        - 443/tcp
-##        insertafter: '^0'
-##        line: test
-##  handlers:
-##    - name: firewalld reload
-##      command: firewall-cmd --reload
 ...
