@@ -37,7 +37,11 @@
         path: /etc/default/grub
         backrefs: yes
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* audit)\"[^\"]+)(\".*)'
-        line: '\1 audit=1\2'
+        line: "{{ item }}"
+      loop:
+        - \1 audit=1\2
+
+
 
 #        search_string: 'net.ifnames=0'
 #        regexp: '^(net.ifnames=0)'
