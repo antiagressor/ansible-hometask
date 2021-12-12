@@ -13,7 +13,7 @@
         replace: '\1 {{ option }}={{ value }}\2'
       vars:
         option: net.ifnames
-        value: 1
+        value: 0
     - name: add biosdevname
       replace:
           path: /etc/default/grub
