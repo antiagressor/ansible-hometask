@@ -25,25 +25,18 @@
 
 
 
-    - name: add biosdevname
-#      replace:
-#          path: /etc/default/grub
-#          regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
-#          replace: '\1 {{ option }}={{ value }}\2'
-#      vars:
-#        option: biosdevname
-#        value: 0
+    - name: add first change
       lineinfile:
         path: /etc/default/grub
         backrefs: yes
-        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* "{{ item }}")\"[^\"]+)(\".*)'
-          line: "{{ item }}"
-        loop:
-           - \1 net.ifnames=0\2
-           - \1 nettest=1\2
-      loop:
-        - net.ifnames
-        - 1234
+        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* net.ifnames)\"[^\"]+)(\".*)'
+        line: '\1 net.ifnames=0\2'
+
+    - name: add second change
+        path: /etc/default/grub
+        backrefs: yes
+        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* biosdevname)\"[^\"]+)(\".*)'
+        line: '\1 biosdevname=0\2'
 
 
 
