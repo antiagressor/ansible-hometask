@@ -12,7 +12,7 @@
 #        search_string: 'net.ifnames=0'
 #        regexp: '^(net.ifnames=0)'
         regexp: "{{ item }}"
-        state: absent
+        state: present
       loop:
         - ^(net.ifnames=0)
 #        - 443/tcp
