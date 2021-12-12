@@ -36,10 +36,14 @@
       lineinfile:
         path: /etc/default/grub
         backrefs: yes
-        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* net.ifnames)\"[^\"]+)(\".*)'
-        line: "{{ item }}"
+        regexp: '^(GRUB_CMDLINE_LINUX=(?!.* "{{item.test}}")\"[^\"]+)(\".*)'
+          line: "{{ item.test2 }}"
+        loop:
+           - '\1 net.ifnames=0\2'
+           - '\1 nettest=1\2'
       loop:
-        - \1 net.ifnames=0\2
+        - net.ifnames
+        - 1234
 
 
 
