@@ -12,8 +12,8 @@
         regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
         replace: '\1 {{ option }}={{ value }}\2'
       vars:
-        option: audit
-        value: 1
+        option: net.ifnames
+        value: 0
 #      lineinfile:
 #        path: /etc/default/grub
 ##        search_string: 'net.ifnames=0'
