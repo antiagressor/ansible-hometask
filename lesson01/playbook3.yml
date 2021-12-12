@@ -9,11 +9,11 @@
     - name: Ensure we have net.ifnames and biosdevname
       lineinfile:
         path: /etc/default/grub
-        search_string: 'net.ifnames=0'
-#        regexp: '^net.ifnames=0'
+#        search_string: 'net.ifnames=0'
+        regexp: '^(net.ifnames=0)'
         state: absent
 #        insertafter: '^0'
-        line: test
+#        line: test
 #  handlers:
 #    - name: firewalld reload
 #      command: firewall-cmd --reload
