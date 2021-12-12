@@ -38,7 +38,7 @@
 #        search_string: 'net.ifnames=0'
         regexp: '^(net.ifnames=0)'
 #        regexp: "{{ item }}"
-        state: present
+        state: absent
         insertafter: '1234'
 #        line: 'net.ifnames=0'
         backrefs: yes
