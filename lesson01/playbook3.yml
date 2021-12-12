@@ -6,7 +6,7 @@
   become_user: root
 
   tasks:
-    - name: change grub
+    - name: test
       replace:
         path: /etc/default/grub
         regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
