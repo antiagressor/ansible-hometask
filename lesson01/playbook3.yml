@@ -16,7 +16,7 @@
         value: "{{ item.value }}"
       loop:
         - { option: 'net.ifnames', '1' }
-        - { valuse: 'biosdevname', '0' }
+        - { value: 'biosdevname', '0' }
 #      lineinfile:
 #        path: /etc/default/grub
 ##        search_string: 'net.ifnames=0'
