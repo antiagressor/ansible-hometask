@@ -10,8 +10,12 @@
       lineinfile:
         path: /etc/default/grub
 #        search_string: 'net.ifnames=0'
-        regexp: '^(net.ifnames=0)'
+#        regexp: '^(net.ifnames=0)'
+        regexp: "{{ item }}"
         state: absent
+      loop:
+        - ^(net.ifnames=0)
+#        - 443/tcp
 #        insertafter: '^0'
 #        line: test
 #  handlers:
