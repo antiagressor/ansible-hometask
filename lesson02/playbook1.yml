@@ -17,5 +17,5 @@
         update_password: on_create
       loop:
         - Alice
-#        - Bob
-#        - Carol
+        - Bob
+        - Carol
