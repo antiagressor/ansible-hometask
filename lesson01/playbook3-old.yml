@@ -1,0 +1,41 @@
+---
+- hosts: node01.lab.local
+  user: ansible
+  become: yes
+  become_method: sudo
+  become_user: root
+
+  tasks:
+    - name: add net.ifnames
+      replace:
+        path: /etc/default/grub
+        regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
+        replace: '\1 {{ option }}={{ value }}\2'
+      vars:
+        option: net.ifnames
+        value: 0
+    - name: add biosdevname
+      replace:
+          path: /etc/default/grub
+          regexp: '^(GRUB_CMDLINE_LINUX=(?:(?![" ]{{ option | regex_escape }}=).)*)(?:[" ]{{ option | regex_escape }}=\S+)?(.*")$'
+          replace: '\1 {{ option }}={{ value }}\2'
+      vars:
+        option: biosdevname
+        value: 0
+#      lineinfile:
+#        path: /etc/default/grub
+##        search_string: 'net.ifnames=0'
+##       regexp: '^(net.ifnames=0)'
+#        regexp: "{{ item }}"
+#        state: present
+##        insertafter: '^(GRUB_CMDLINE_LINUX=" )'
+#        line: 'net.ifnames=0'
+#      loop:
+#        - ^GRUB_CMDLINE_LINUX="
+##        - 443/tcp
+##        insertafter: '^0'
+##        line: test
+##  handlers:
+##    - name: firewalld reload
+##      command: firewall-cmd --reload
+...
