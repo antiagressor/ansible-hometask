@@ -18,7 +18,7 @@
       service:
         name: httpd
         state: started
-      when: result.rc != 0
+      when: result.rc != 3
 
 #      notify: restart httpd
     - name: Creating an index.html
