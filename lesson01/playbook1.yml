@@ -8,15 +8,13 @@
   tasks:
     - name: Install httpd
       yum: pkg=httpd state=latest
-
     - name: Enable httpd on system reboot
       service: name=httpd enabled=yes
-
     - name: Check if httpd is running
       command: /usr/bin/systemctl is-active httpd
       ignore_errors: yes
       register: result
-    - name: start httpd if httpd is not running
+    - name: "start httpd if httpd is not running"
       service:
         name: httpd
         state: started
