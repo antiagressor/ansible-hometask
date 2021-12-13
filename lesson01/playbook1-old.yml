@@ -8,10 +8,8 @@
   tasks:
     - name: Install httpd
       yum: pkg=httpd state=latest
-
     - name: Enable httpd on system reboot
       service: name=httpd enabled=yes
-
     - name: Check if httpd is running
       command: /usr/bin/systemctl is-active httpd
       ignore_errors: yes
@@ -22,18 +20,21 @@
         state: started
       when: result.rc != 0
 
+#      notify: restart httpd
     - name: Creating an index.html
+##      copy:
+##        path: "/var/www/html/index.html"
+##        content: |
+##          Welcome to my web server
       lineinfile:
         path: "/var/www/html/index.html"
         line: Welcome to my web server
         owner: apache
         group: apache
         create: yes
-
     - name: Enable FirewallD on system reboot
       service: name=firewalld enabled=yes
       notify: restart firewalld
-
     - name: FirewallD enable http/https
       firewalld:
         zone: public
@@ -45,6 +46,8 @@
         - 443/tcp
       notify: firewalld reload
   handlers:
+#    - name: restart httpd
+#      service: name=httpd state=restarted
     - name: restart firewalld
       service: name=firewalld state=restarted
     - name: firewalld reload
