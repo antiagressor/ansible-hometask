@@ -12,8 +12,7 @@
         backrefs: yes
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* net.ifnames)\"[^\"]+)(\".*)'
         line: '\1 net.ifnames=0\2'
-        notify: grub2 reload
-
+      notify: grub2 reload
     - name: add second change
       lineinfile:
         path: /etc/default/grub
