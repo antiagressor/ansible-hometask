@@ -11,8 +11,7 @@
     - name: Create Users
       user:
         name: "{{ item }}"
-#        password: "{{ my_password | password_hash('sha512') }}"
-        password: 'QWEqwe123'
+        password: "{{ QWEqwe123 | password_hash('sha512') }}"
         comment: "{{ item }}@lab.local"
         shell: /bin/bash
         update_password: on_create
