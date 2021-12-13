@@ -12,12 +12,20 @@
         backrefs: yes
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* net.ifnames)\"[^\"]+)(\".*)'
         line: '\1 net.ifnames=0\2'
-        notify:
-          command: /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+        notify: grub2 reload
+
     - name: add second change
       lineinfile:
         path: /etc/default/grub
         backrefs: yes
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* biosdevname)\"[^\"]+)(\".*)'
         line: '\1 biosdevname=0\2'
+  handlers:
+    - name: grub2 reload
+      command: /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+
+#    - name: restart firewalld
+#      service: name=firewalld state=restarted
+#    - name: firewalld reload
+#      command: firewall-cmd --reload
 ...
