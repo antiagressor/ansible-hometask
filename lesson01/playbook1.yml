@@ -20,7 +20,7 @@
     - name: Start httpd if httpd is not running
       service:
         name: httpd
-        state" started
+        state: started
       when: result.rc == 1
 
 
