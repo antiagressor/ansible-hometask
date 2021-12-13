@@ -5,8 +5,8 @@
   become: yes
   become_method: sudo
   become_user: root
-  vars_files:
-      - my_vault.yml
+#  vars_files:
+#      - my_vault.yml
   tasks:
     - name: Create Users
       user:
