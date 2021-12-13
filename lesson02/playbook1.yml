@@ -15,7 +15,7 @@
         comment: "{{ item }}@lab.local"
         shell: /bin/bash
         update_password: on_create
-      loop:
-        - Alice
-        - Bob
-        - Carol
+      loop: [Alice, Bob, Carol]
+#        - Alice
+#        - Bob
+#        - Carol
