@@ -1,0 +1,22 @@
+---
+- name: Create New Users
+  hosts: [webservers]
+  user: ansible
+  become: yes
+  become_method: sudo
+  become_user: root
+  vars_files:
+      - my_vault.yml
+  tasks:
+    - name: Create Users
+      user:
+        name: "{{ item }}"
+#        password: "{{ my_password | password_hash('sha512') }}"
+        password: 'QWEqwe123'
+        comment: "{{ item }}"@lab.local
+        shell: /bin/bash
+        update_password: on_create
+      loop:
+        - Alice
+#        - Bob
+#        - Carol
