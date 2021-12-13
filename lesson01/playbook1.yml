@@ -14,18 +14,14 @@
       command: /usr/bin/systemctl is-active httpd
       ignore_errors: yes
       register: result
-    - name: "start httpd if httpd is not running"
+    - name: Start httpd if httpd is not running
       service:
         name: httpd
         state: started
       when: result.rc == 1
 
-
-
 #      notify: restart httpd
-#    - name: Creating an index.html
-
-
+    - name: Creating an index.html
 ##      copy:
 ##        path: "/var/www/html/index.html"
 ##        content: |
