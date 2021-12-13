@@ -13,6 +13,7 @@
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* net.ifnames)\"[^\"]+)(\".*)'
         line: '\1 net.ifnames=0\2'
       notify: grub2 reload
+
     - name: Add biosdevname to grub2
       lineinfile:
         path: /etc/default/grub
@@ -20,6 +21,7 @@
         regexp: '^(GRUB_CMDLINE_LINUX=(?!.* biosdevname)\"[^\"]+)(\".*)'
         line: '\1 biosdevname=0\2'
       notify: grub2 reload
+
   handlers:
     - name: grub2 reload
       command: /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
