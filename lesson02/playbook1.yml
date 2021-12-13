@@ -13,7 +13,7 @@
         name: "{{ item }}"
 #        password: "{{ my_password | password_hash('sha512') }}"
         password: 'QWEqwe123'
-        comment: "{{ item }}"@lab.local
+        comment: "{{ item }}@lab.local"
         shell: /bin/bash
         update_password: on_create
       loop:
