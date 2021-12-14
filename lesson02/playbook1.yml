@@ -17,8 +17,8 @@
 #        update_password: on_create
       loop:
         - { name: 'Alice', pass: "{{ password | password_hash('sha512') }}" }
-
-
+        - { name: 'Bob', pass: "{{ password | password_hash('sha512') }}" }
+        - { name: 'Carol', pass: "{{ password | password_hash('sha512') }}" }
 
 
 #      loop: [Alice, Bob, Carol]

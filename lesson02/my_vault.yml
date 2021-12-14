@@ -1,2 +1,5 @@
 Vault password:
-password: QWEqwe123!@#
+password:
+  - QWEqwe123!@#
+  - ASDasd123!@#
+  - ZXCzxc123!@#
