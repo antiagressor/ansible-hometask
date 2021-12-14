@@ -5,17 +5,17 @@
   become_method: sudo
   become_user: root
   vars_files:
-      - my_vault.yml
+      - my_vault_old.yml
   tasks:
     - name: Create Users
       user:
-        name: "{{ item.name }}"
-        password: "{{ item.pass }}"
+        name: "{{ item }}"
+        password: "{{ item }}"
         comment: "{{ item.name }}@lab.local"
         shell: /bin/bash
         update_password: on_create
       loop:
-        - { name: 'Alice', pass: "{{ Alice_pass | password_hash('sha512') }}" }
-        - { name: 'Bob', pass: "{{ Bob_pass | password_hash('sha512') }}" }
-        - { name: 'Carol', pass: "{{ Carol_pass | password_hash('sha512') }}" }
+        - { name: 'Alice', password: "{{ Alice_pass }}" }
+#        - { name: 'Bob', pass: "{{ Bob_pass | password_hash('sha512') }}" }
+#        - { name: 'Carol', pass: "{{ Carol_pass | password_hash('sha512') }}" }
 ...
