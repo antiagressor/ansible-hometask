@@ -1,17 +1,16 @@
 ---
-- name: Create New Users
-  hosts: [webservers]
+- hosts: [webservers]
   user: ansible
   become: yes
   become_method: sudo
   become_user: root
-#  vars_files:
-#      - my_vault.yml
+  vars_files:
+      - my_vault.yml
   tasks:
     - name: Create Users
       user:
         name: "{{ item }}"
-        password: "{{ 'QWEqwe123' | password_hash('sha512') }}"
+        password: "{{ 'password' | password_hash('sha512') }}"
         comment: "{{ item }}@lab.local"
         shell: /bin/bash
         update_password: on_create
