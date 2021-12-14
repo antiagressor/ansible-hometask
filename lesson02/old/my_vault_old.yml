@@ -1,2 +1,0 @@
-Vault password:
-Alice_pass: "{{ 'QWEqwe123' | password_hash('sha512') }}"
