@@ -16,7 +16,7 @@
         shell: /bin/bash
 #        update_password: on_create
       loop:
-        - { name: 'Alice', pass: {{ password }} }
+        - { name: 'Alice', pass: "{{ password }}" }
 
 
 
