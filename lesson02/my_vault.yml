@@ -1,5 +1,4 @@
 Vault password:
-password:
-  - { pass: QWEqwe123!@# }
-  - { pass: ASDasd123!@# }
-  - { pass: ZXCzxc123!@# }
+Alice_pass: QWEqwe123!@#
+Bob_pass: ASDasd123!@#
+Carol_pass: ZXCzxc123!@#
