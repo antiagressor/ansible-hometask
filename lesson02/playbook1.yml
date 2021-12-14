@@ -11,17 +11,11 @@
       user:
         name: "{{ item.name }}"
         password: "{{ item.pass }}"
-#        password: "{{ password | password_hash('sha512') }}"
         comment: "{{ item.name }}@lab.local"
         shell: /bin/bash
-#        update_password: on_create
+        update_password: on_create
       loop:
         - { name: 'Alice', pass: "{{ Alice_pass | password_hash('sha512') }}" }
         - { name: 'Bob', pass: "{{ Bob_pass | password_hash('sha512') }}" }
         - { name: 'Carol', pass: "{{ Carol_pass | password_hash('sha512') }}" }
-
-
-#      loop: [Alice, Bob, Carol]
-#        - Alice
-#        - Bob
-#        - Carol
+...
