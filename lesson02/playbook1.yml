@@ -10,10 +10,10 @@
     - name: Create Users
       user:
         name: "{{ item }}"
-        password: "{{ 'password' | password_hash('sha512') }}"
+        password: "{{ password | password_hash('sha512') }}"
         comment: "{{ item }}@lab.local"
         shell: /bin/bash
-        update_password: on_create
+#        update_password: on_create
       loop: [Alice, Bob, Carol]
 #        - Alice
 #        - Bob
