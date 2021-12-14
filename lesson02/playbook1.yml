@@ -9,12 +9,19 @@
   tasks:
     - name: Create Users
       user:
-        name: "{{ item }}"
-        password: "{{ password | password_hash('sha512') }}"
+        name: "{{ item.name }}"
+        password: "{{ item.pass }}"
+#        password: "{{ password | password_hash('sha512') }}"
         comment: "{{ item }}@lab.local"
         shell: /bin/bash
 #        update_password: on_create
-      loop: [Alice, Bob, Carol]
+      loop:
+        - { name: 'Alice', pass: {{ password }} }
+
+
+
+
+#      loop: [Alice, Bob, Carol]
 #        - Alice
 #        - Bob
 #        - Carol
