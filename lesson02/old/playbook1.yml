@@ -1,0 +1,21 @@
+---
+- hosts: [webservers]
+  user: ansible
+  become: yes
+  become_method: sudo
+  become_user: root
+  vars_files:
+      - my_vault.yml
+  tasks:
+    - name: Create Users
+      user:
+        name: "{{ username }}"
+        password: "{{ password }}"
+#        comment: "{{ item.name }}@lab.local"
+#        shell: /bin/bash
+#        update_password: on_create
+#      loop:
+        - { username: 'Alice' }
+#        - { name: 'Bob', pass: "{{ Bob_pass | password_hash('sha512') }}" }
+#        - { name: 'Carol', pass: "{{ Carol_pass | password_hash('sha512') }}" }
+...
