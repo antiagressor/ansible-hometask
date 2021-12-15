@@ -7,12 +7,12 @@
   vars_files:
       - my_vault.yml
   tasks:
-    - name: Create Users
+    - name: Create
       user:
-        name: "{{ username }}"
+        name: "{{ item.username }}"
         password: "{{ password }}"
 #        comment: "{{ item.name }}@lab.local"
-        shell: /bin/bash
+#        shell: /bin/bash
 #        update_password: on_create
       loop:
         - { username: 'Alice' }
