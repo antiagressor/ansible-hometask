@@ -1,2 +1,4 @@
 ---
 # defaults file for deploy_vsftpd
+
+conf_folder: /etc/vsftpd

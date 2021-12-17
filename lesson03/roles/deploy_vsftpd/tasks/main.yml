@@ -1,2 +1,15 @@
 ---
 # tasks file for deploy_vsftpd
+
+- name: Install vsftpd
+  yum: pkg=vsftpd state=present
+
+- name: Use template to copy FTP config
+  template:
+    src: vsftpd.j2
+    dest: "{{ conf_folder }}/vsftpd.conf"
+
+- name: Enable vsftpd on system reboot
+  service:
+    name: vsftpd enabled=yes state=started
+
