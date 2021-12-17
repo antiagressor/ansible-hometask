@@ -12,3 +12,14 @@
 - name: Enable vsftpd on system reboot
   service: name=vsftpd enabled=yes state=started
 
+- name: Enable FirewallD on system reboot
+  service: name=firewalld enabled=yes
+  notify: restart firewalld
+
+- name: FirewallD enable access to vsftpd
+  firewalld:
+    zone: public
+    port: "{{ ftp_port }}"
+    permanent: true
+    state: enabled
+  notify: firewalld reload

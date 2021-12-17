@@ -2,3 +2,4 @@
 # defaults file for deploy_vsftpd
 
 conf_folder: /etc/vsftpd
+ftp_port: 21
