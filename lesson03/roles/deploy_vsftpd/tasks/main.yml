@@ -19,7 +19,10 @@
 - name: FirewallD enable access to vsftpd
   firewalld:
     zone: public
-    port: "{{ ftp_port }}"
+    port: "{{ item }}"
     permanent: true
     state: enabled
+  loop:
+    - "{{ ftp_port }}/tcp"
+    - "{{ pasv_min_port }}-{{ pasv_max_port }}/tcp"
   notify: firewalld reload
