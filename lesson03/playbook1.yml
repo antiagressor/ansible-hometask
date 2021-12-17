@@ -7,5 +7,6 @@
   become_user: root
 
   roles:
-    - { role: deploy_apache, when: ansible_system == 'Linux' }
+#    - { role: deploy_apache, when: ansible_system == 'Linux' }
+     - { role: deploy_vsftpd, when: ansible_system == 'Linux' }
 
