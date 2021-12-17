@@ -2,10 +2,12 @@
 # defaults file for deploy_vsftpd
 
 conf_folder: /etc/vsftpd
+upload_folder: /var/ftp/pub/upload
 ftp_data_port: 20
 ftp_listen_port: 21
 pasv_min_port: 40900
 pasv_max_port: 40999
+
 #anonymous_enable: 'yes'
 #local_enable: 'yes'
 #write_enable: 'yes'

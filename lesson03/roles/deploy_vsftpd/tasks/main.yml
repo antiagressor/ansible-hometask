@@ -9,6 +9,11 @@
     src: vsftpd.j2
     dest: "{{ conf_folder }}/vsftpd.conf"
 
+- name: Create upload directory if it does not exist
+  file:
+    path: "{{ upload_folder }}"
+    state: directory
+
 - name: Enable vsftpd on system reboot
   service: name=vsftpd enabled=yes state=started
 
