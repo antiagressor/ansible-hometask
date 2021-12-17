@@ -1,5 +1,5 @@
 ---
-- name: Install Apache and create index.html
+- name: Install Apache, create index.html, open tcp 80/443
 - hosts: [webservers]
   user: ansible
   become: yes
@@ -7,5 +7,5 @@
   become_user: root
 
   roles:
-    - deploy_apache
+    - { role: deploy_apache, when: ansible_system == 'Linux' }
 
