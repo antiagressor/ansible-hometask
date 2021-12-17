@@ -19,7 +19,7 @@
 
 - name: Creating an index.html
   lineinfile:
-    path: {{ dest_folder }}/index.html
+    path: "{{ dest_folder }}/index.html"
     line: Welcome to my web server
     owner: apache
     group: apache
