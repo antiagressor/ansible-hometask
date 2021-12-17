@@ -2,7 +2,7 @@
 # defaults file for deploy_vsftpd
 
 conf_folder: /etc/vsftpd
-ftp_port: 20, 21
+ftp_port: '20-21'
 pasv_min_port: 40900
 pasv_max_port: 40999
 #anonymous_enable: 'yes'
