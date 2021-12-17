@@ -1,23 +1,11 @@
 ---
+- name: Install Apache and create index.html
 - hosts: [webservers]
   user: ansible
   become: yes
   become_method: sudo
   become_user: root
 
-  tasks:
-    - name: Install httpd
-      yum: pkg=httpd state=latest
+  roles:
+    - deploy_apache
 
-    - name: Enable httpd on system reboot
-      service: name=httpd enabled=yes
-
-    - name: Check if httpd is running
-      command: /usr/bin/systemctl is-active httpd
-      ignore_errors: yes
-      register: result
-    - name: Start httpd if httpd is not running
-      service:
-        name: httpd
-        state: started
-      when: result.rc != 0
