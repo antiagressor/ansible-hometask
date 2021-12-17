@@ -1,6 +1,7 @@
 ---
 - name: Install Apache, create index.html, open tcp 80/443
-  hosts: [webservers]
+#  hosts: [webservers]
+  hosts: node02.lab.local
   user: ansible
   become: yes
   become_method: sudo
