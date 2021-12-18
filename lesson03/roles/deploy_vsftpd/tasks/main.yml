@@ -25,12 +25,12 @@
 - name: FirewallD enable access to vsftpd
   firewalld:
     zone: public
-#    port: "{{ item }}"
     service: "{{ service }}"
     permanent: true
     state: enabled
-#  loop:
-#    - "{{ ftp_listen_port }}/tcp"
-#    - "{{ ftp_data_port }}/tcp"
-#    - "{{ pasv_min_port }}-{{ pasv_max_port }}/tcp"
   notify: firewalld reload
+
+- name: Set ftpd_anon_write ON
+    command: /usr/sbin/setenforce -P ftpd_anon_write on
+#    ignore_errors: yes
+#    register: result
