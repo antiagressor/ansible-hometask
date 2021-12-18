@@ -38,8 +38,8 @@
 - name: Set ftpd_anon_write flag on and keep it persistent across reboots
   seboolean:
     name: ftpd_anon_write
-    state: "{{ ftpd_anon_write }}"
+    state: on
     persistent: yes
-    debug:
-      var: result
-      verbosity: 4
+#    debug:
+#      var: result
+#      verbosity: 4
