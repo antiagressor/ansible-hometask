@@ -31,6 +31,6 @@
   notify: firewalld reload
 
 - name: Set ftpd_anon_write ON
-    command: /usr/sbin/setenforce -P ftpd_anon_write on
+  command: /usr/sbin/setenforce -P ftpd_anon_write on
 #    ignore_errors: yes
 #    register: result
