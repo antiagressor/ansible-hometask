@@ -30,7 +30,12 @@
     state: enabled
   notify: firewalld reload
 
-- name: Set ftpd_anon_write ON
-  command: /usr/sbin/setenforce -P ftpd_anon_write on
+- name: Put SELinux in permissive mode, logging actions that would be blocked.
+  selinux:
+    policy: targeted
+    state: "{{ selinux_state }}"
+
+#- name: Set ftpd_anon_write ON
+#  command: /usr/sbin/setenforce -P ftpd_anon_write on
 #    ignore_errors: yes
 #    register: result
