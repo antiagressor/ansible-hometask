@@ -21,5 +21,4 @@ pam_service_name: 'vsftpd'
 userlist_enable: 'YES'
 
 selinux_state: 'permissive'
-
-#ftpd_anon_write: 'ftpd_anon_write on'
+ftpd_anon_write: 'yes'

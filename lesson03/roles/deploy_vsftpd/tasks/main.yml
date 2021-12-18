@@ -35,7 +35,8 @@
     policy: targeted
     state: "{{ selinux_state }}"
 
-#- name: Set ftpd_anon_write ON
-#  command: /usr/sbin/setenforce -P ftpd_anon_write on
-#    ignore_errors: yes
-#    register: result
+- name: Set ftpd_anon_write flag on and keep it persistent across reboots
+  seboolean:
+    name: ftpd_anon_write
+    state: "{{ ftpd_anon_write }}"
+    persistent: yes
