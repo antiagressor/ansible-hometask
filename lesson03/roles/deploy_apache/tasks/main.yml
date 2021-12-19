@@ -12,7 +12,7 @@
   ignore_errors: yes
   register: result
 
-- name: Start httpd if httpd is not running
+- name: Start httpd if httpd is not runningi
   service:
     name: httpd
     state: started
