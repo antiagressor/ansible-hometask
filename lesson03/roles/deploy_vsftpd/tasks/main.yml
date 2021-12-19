@@ -48,4 +48,4 @@
 - name: debug test
   debug:
     var: test
-    verbosity: 3
+#    verbosity: 3
