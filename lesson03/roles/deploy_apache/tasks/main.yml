@@ -11,8 +11,8 @@
   command: /usr/bin/systemctl is-active httpd
   ignore_errors: yes
   register: result
-debug:
-  var: result
+    debug:
+      var: result
 - name: Start httpd if httpd is not running
   service:
     name: httpd
