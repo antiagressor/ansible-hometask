@@ -17,6 +17,7 @@
     path: "{{ upload_folder }}"
     state: directory
     mode: '777'
+  notify: sec_cont
 
 - name: Enable vsftpd on system reboot
   service: name=vsftpd enabled=yes state=started
