@@ -1,5 +1,5 @@
 ---
-- name: Install Apache, create index.html, open tcp 80/443
+- name: Install apache, vsftpd
   hosts: [webservers]
   user: ansible
   become: yes
@@ -7,6 +7,6 @@
   become_user: root
 
   roles:
-#    - { role: deploy_apache, when: ansible_system == 'Linux' }
+     - { role: deploy_apache, when: ansible_system == 'Linux' }
      - { role: deploy_vsftpd, when: ansible_system == 'Linux' }
 

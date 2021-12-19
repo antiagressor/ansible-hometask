@@ -34,16 +34,6 @@
     state: enabled
   notify: firewalld reload
 
-#- name: Put SELinux in permissive mode, logging actions that would be blocked.
-#  selinux:
-#    policy: targeted
-#    state: "{{ selinux_state }}"
-
-#- name: Change folder security context
-#  shell:
-#    cmd: chcon -R -t public_content_rw_t "{{ upload_folder }}"
-
-
 - name: Set ftpd_anon_write flag on and keep it persistent across reboots
   seboolean:
     name: ftpd_anon_write
