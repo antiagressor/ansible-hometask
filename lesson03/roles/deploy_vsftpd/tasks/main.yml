@@ -39,3 +39,11 @@
     name: ftpd_anon_write
     state: on
     persistent: yes
+
+#- name: test
+#  shell:
+#    cmd: ls -Z "{{ upload_folder }}"
+
+#- name: debug test
+#  debug:
+#    var: result
