@@ -41,5 +41,5 @@
     persistent: yes
 
 - name: print facts
- debug:
-   msg: "{{ ansible_facts.ansible_local.package }}"
+  debug:
+    msg: "{{ ansible_facts.ansible_local.package }}"
