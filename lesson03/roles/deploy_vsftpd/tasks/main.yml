@@ -42,7 +42,7 @@
 
 - name: test
   shell:
-    cmd: ls -Z "{{ upload_folder }}"
+    cmd: ls -Z /var/ftp/pub
   register: test
 
 - name: debug test
