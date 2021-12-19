@@ -5,7 +5,7 @@
   yum: pkg=vsftpd state=present
 
 - name: Install Python-Utils
-  yum: policycoreutils-python-utils state=present
+  yum: pkg=policycoreutils-python-utils state=present
 
 - name: Use template to copy FTP config
   template:
