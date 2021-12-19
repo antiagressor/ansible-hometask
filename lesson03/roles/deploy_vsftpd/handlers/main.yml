@@ -9,4 +9,4 @@
 
 - name: sec_cont
   shell:
-    cmd: chcon -t public_content_rw_t "{{ upload_folder }}"
+    cmd: chcon -t public_content_rw_t /var/ftp/pub
