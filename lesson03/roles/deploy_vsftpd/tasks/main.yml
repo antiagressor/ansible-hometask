@@ -39,7 +39,3 @@
     name: ftpd_anon_write
     state: on
     persistent: yes
-
-- name: print facts
-  debug:
-    msg: "{{ ansible_facts.ansible_local.package }}"
