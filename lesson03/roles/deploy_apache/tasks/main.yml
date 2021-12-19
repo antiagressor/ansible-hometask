@@ -13,6 +13,8 @@
   register: result
 
 - name: Start httpd if httpd is not running
+  ansible.builtin.debug:
+    var: result
   service:
     name: httpd
     state: started
