@@ -3,7 +3,7 @@
 
 conf_folder: /etc/vsftpd
 upload_folder: /var/ftp/pub/upload
-service: 'ftp'
+fw_service: 'ftp'
 anonymous_enable: 'YES'
 local_enable: 'YES'
 write_enable: 'YES'

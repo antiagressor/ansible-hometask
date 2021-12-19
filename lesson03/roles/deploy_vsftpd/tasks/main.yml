@@ -29,7 +29,7 @@
 - name: FirewallD enable access to vsftpd
   firewalld:
     zone: public
-    service: "{{ service }}"
+    service: "{{ fw_service }}"
     permanent: true
     state: enabled
   notify: firewalld reload
@@ -40,10 +40,11 @@
     state: on
     persistent: yes
 
-- name: test
+- name: testing
   shell:
     cmd: ls -Z "{{ upload_folder }}"
   registr: test
+
 - name: debug test
   debug:
     var: test
