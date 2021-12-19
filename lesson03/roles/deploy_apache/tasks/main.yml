@@ -11,10 +11,12 @@
   command: /usr/bin/systemctl is-active httpd
   ignore_errors: yes
   register: result
+  tasks:
+    - name: debug test
+      debug:
+        var: result
 
 - name: Start httpd if httpd is not running
-  ansible.builtin.debug:
-    var: result
   service:
     name: httpd
     state: started
