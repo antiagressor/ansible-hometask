@@ -40,11 +40,11 @@
     state: on
     persistent: yes
 
-- name: Testing
+- name: test
   shell:
     cmd: ls -Z "{{ upload_folder }}"
-#  registr: test
+  register: test
 
-#- name: debug test
-#  debug:
-#    var: test
+- name: debug test
+  debug:
+    var: test
