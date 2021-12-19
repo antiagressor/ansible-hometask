@@ -4,6 +4,9 @@
 - name: Install vsftpd
   yum: pkg=vsftpd state=present
 
+- name: Install Python-Utils
+  yum: policycoreutils-python-utils state=present
+
 - name: Use template to copy FTP config
   template:
     src: vsftpd.j2
@@ -30,10 +33,10 @@
     state: enabled
   notify: firewalld reload
 
-- name: Put SELinux in permissive mode, logging actions that would be blocked.
-  selinux:
-    policy: targeted
-    state: "{{ selinux_state }}"
+#- name: Put SELinux in permissive mode, logging actions that would be blocked.
+#  selinux:
+#    policy: targeted
+#    state: "{{ selinux_state }}"
 
 - name: Change folder security context
   shell:
