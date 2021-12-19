@@ -40,12 +40,7 @@
     state: on
     persistent: yes
 
-- name: test
-  shell:
-    cmd: ls -Z /var/ftp/pub
-  register: test
-
-- name: debug test
-  debug:
-    var: test
-#    verbosity: 3
+- name: show IP address
+    debug:
+      msg: >
+        This host uses IP address {{ ansible_facts.default_ipv4.address }}
